@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12146e61-698c-4a83-87ca-159674f94230">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MaPN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[26]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ChiTietPhieuNhap."MaCTPN" AS ChiTietPhieuNhap_MaCTPN,
+     ChiTietPhieuNhap."MaPN" AS ChiTietPhieuNhap_MaPN,
+     ChiTietPhieuNhap."MaSP" AS ChiTietPhieuNhap_MaSP,
+     ChiTietPhieuNhap."SoLuong" AS ChiTietPhieuNhap_SoLuong,
+     ChiTietPhieuNhap."TongTien" AS ChiTietPhieuNhap_TongTien,
+     ChiTietPhieuNhap."MoTa" AS ChiTietPhieuNhap_MoTa,
+     NhaCungCap."MaNCC" AS NhaCungCap_MaNCC,
+     NhaCungCap."TenNCC" AS NhaCungCap_TenNCC,
+     NhaCungCap."SDT" AS NhaCungCap_SDT,
+     NhaCungCap."Email" AS NhaCungCap_Email,
+     NhaCungCap."DiaChi" AS NhaCungCap_DiaChi,
+     NhaCungCap."MoTa" AS NhaCungCap_MoTa,
+     NhanVien."MaNV" AS NhanVien_MaNV,
+     NhanVien."TenNV" AS NhanVien_TenNV,
+     NhanVien."GioiTinh" AS NhanVien_GioiTinh,
+     NhanVien."DiaChi" AS NhanVien_DiaChi,
+     NhanVien."SDT" AS NhanVien_SDT,
+     NhanVien."CMND" AS NhanVien_CMND,
+     NhanVien."Email" AS NhanVien_Email,
+     NhanVien."NgaySinh" AS NhanVien_NgaySinh,
+     NhanVien."ChucVu" AS NhanVien_ChucVu,
+     NhanVien."NgayVaoLam" AS NhanVien_NgayVaoLam,
+     NhanVien."Hinh" AS NhanVien_Hinh,
+     NhanVien."MoTa" AS NhanVien_MoTa,
+     PhieuNhap."MaPN" AS PhieuNhap_MaPN,
+     PhieuNhap."SoPhieu" AS PhieuNhap_SoPhieu,
+     PhieuNhap."TenTK" AS PhieuNhap_TenTK,
+     PhieuNhap."MaNCC" AS PhieuNhap_MaNCC,
+     PhieuNhap."Tongtien" AS PhieuNhap_Tongtien,
+     PhieuNhap."Ngaylap" AS PhieuNhap_Ngaylap,
+     PhieuNhap."MoTa" AS PhieuNhap_MoTa,
+     SanPham."MaSP" AS SanPham_MaSP,
+     SanPham."TenSP" AS SanPham_TenSP,
+     SanPham."MaLoaiSP" AS SanPham_MaLoaiSP,
+     SanPham."GiaNhap" AS SanPham_GiaNhap,
+     SanPham."GiaBan" AS SanPham_GiaBan,
+     SanPham."TonKho" AS SanPham_TonKho,
+     SanPham."DonViTinh" AS SanPham_DonViTinh,
+     SanPham."Hinh" AS SanPham_Hinh,
+     SanPham."MoTa" AS SanPham_MoTa,
+     TaiKhoan."TenTK" AS TaiKhoan_TenTK,
+     TaiKhoan."MatKhau" AS TaiKhoan_MatKhau,
+     TaiKhoan."MaNV" AS TaiKhoan_MaNV,
+     TaiKhoan."MaQuyen" AS TaiKhoan_MaQuyen,
+     TaiKhoan."MoTa" AS TaiKhoan_MoTa
+FROM
+     "dbo"."NhaCungCap" NhaCungCap INNER JOIN "dbo"."PhieuNhap" PhieuNhap ON NhaCungCap."MaNCC" = PhieuNhap."MaNCC"
+     INNER JOIN "dbo"."ChiTietPhieuNhap" ChiTietPhieuNhap ON PhieuNhap."MaPN" = ChiTietPhieuNhap."MaPN"
+     INNER JOIN "dbo"."TaiKhoan" TaiKhoan ON PhieuNhap."TenTK" = TaiKhoan."TenTK"
+     INNER JOIN "dbo"."NhanVien" NhanVien ON TaiKhoan."MaNV" = NhanVien."MaNV"
+     INNER JOIN "dbo"."SanPham" SanPham ON ChiTietPhieuNhap."MaSP" = SanPham."MaSP"
+WHERE
+     PhieuNhap."MaPN" = $P{MaPN}]]>
+	</queryString>
+	<field name="ChiTietPhieuNhap_MaCTPN" class="java.lang.Integer"/>
+	<field name="ChiTietPhieuNhap_MaPN" class="java.lang.Integer"/>
+	<field name="ChiTietPhieuNhap_MaSP" class="java.lang.String"/>
+	<field name="ChiTietPhieuNhap_SoLuong" class="java.lang.Integer"/>
+	<field name="ChiTietPhieuNhap_TongTien" class="java.math.BigDecimal"/>
+	<field name="ChiTietPhieuNhap_MoTa" class="java.lang.String"/>
+	<field name="NhaCungCap_MaNCC" class="java.lang.String"/>
+	<field name="NhaCungCap_TenNCC" class="java.lang.String"/>
+	<field name="NhaCungCap_SDT" class="java.lang.String"/>
+	<field name="NhaCungCap_Email" class="java.lang.String"/>
+	<field name="NhaCungCap_DiaChi" class="java.lang.String"/>
+	<field name="NhaCungCap_MoTa" class="java.lang.String"/>
+	<field name="NhanVien_MaNV" class="java.lang.String"/>
+	<field name="NhanVien_TenNV" class="java.lang.String"/>
+	<field name="NhanVien_GioiTinh" class="java.lang.Boolean"/>
+	<field name="NhanVien_DiaChi" class="java.lang.String"/>
+	<field name="NhanVien_SDT" class="java.lang.String"/>
+	<field name="NhanVien_CMND" class="java.lang.String"/>
+	<field name="NhanVien_Email" class="java.lang.String"/>
+	<field name="NhanVien_NgaySinh" class="java.sql.Date"/>
+	<field name="NhanVien_ChucVu" class="java.lang.String"/>
+	<field name="NhanVien_NgayVaoLam" class="java.sql.Date"/>
+	<field name="NhanVien_Hinh" class="java.lang.String"/>
+	<field name="NhanVien_MoTa" class="java.lang.String"/>
+	<field name="PhieuNhap_MaPN" class="java.lang.Integer"/>
+	<field name="PhieuNhap_SoPhieu" class="java.lang.String"/>
+	<field name="PhieuNhap_TenTK" class="java.lang.String"/>
+	<field name="PhieuNhap_MaNCC" class="java.lang.String"/>
+	<field name="PhieuNhap_Tongtien" class="java.math.BigDecimal"/>
+	<field name="PhieuNhap_Ngaylap" class="java.sql.Timestamp"/>
+	<field name="PhieuNhap_MoTa" class="java.lang.String"/>
+	<field name="SanPham_MaSP" class="java.lang.String"/>
+	<field name="SanPham_TenSP" class="java.lang.String"/>
+	<field name="SanPham_MaLoaiSP" class="java.lang.String"/>
+	<field name="SanPham_GiaNhap" class="java.math.BigDecimal"/>
+	<field name="SanPham_GiaBan" class="java.math.BigDecimal"/>
+	<field name="SanPham_TonKho" class="java.lang.Integer"/>
+	<field name="SanPham_DonViTinh" class="java.lang.String"/>
+	<field name="SanPham_Hinh" class="java.lang.String"/>
+	<field name="SanPham_MoTa" class="java.lang.String"/>
+	<field name="TaiKhoan_TenTK" class="java.lang.String"/>
+	<field name="TaiKhoan_MatKhau" class="java.lang.String"/>
+	<field name="TaiKhoan_MaNV" class="java.lang.String"/>
+	<field name="TaiKhoan_MaQuyen" class="java.lang.Integer"/>
+	<field name="TaiKhoan_MoTa" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="152" y="21" width="263" height="34" uuid="8bcab235-39c9-4b37-ad1d-1d93f76d8494"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PHIẾU NHẬP HÀNG]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="108" splitType="Stretch">
+			<staticText>
+				<reportElement x="79" y="21" width="73" height="20" uuid="0f96ba4c-99b2-44a4-a079-802825df84fb"/>
+				<text><![CDATA[Số PN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="41" width="73" height="20" uuid="35c753c7-cf58-47b8-8154-60798cb71ecc"/>
+				<text><![CDATA[Nhân viên:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="61" width="73" height="20" uuid="17907a25-707c-4197-9614-6a1b8140180d"/>
+				<text><![CDATA[Ngày nhập:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="21" width="100" height="20" uuid="9c965cd6-4d52-4445-b7df-1f09704d75df"/>
+				<text><![CDATA[Nhà cung cấp:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="41" width="100" height="20" uuid="7cb66364-e3d3-4374-8e77-b687f9af065e"/>
+				<text><![CDATA[Số điện thoại:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="61" width="100" height="20" uuid="a270cba7-eb71-4acd-a905-c7ddb58b95d2"/>
+				<text><![CDATA[Địa chỉ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="152" y="21" width="117" height="20" uuid="4d069f5d-c8e8-409b-b687-4f10c3c82d71"/>
+				<textFieldExpression><![CDATA["  " +$F{PhieuNhap_SoPhieu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="41" width="117" height="20" uuid="196e0dd0-a84e-4953-8a7c-9e5ab58947d4"/>
+				<textFieldExpression><![CDATA["  "+$F{NhanVien_TenNV}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH.mm.ss">
+				<reportElement x="152" y="61" width="117" height="20" uuid="f1eaaa9e-8b4b-4166-a9c9-70fff996760d"/>
+				<textFieldExpression><![CDATA["  "+$F{PhieuNhap_Ngaylap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="21" width="100" height="20" uuid="81fc0f3e-839c-44c3-b670-617fb59194ef"/>
+				<textFieldExpression><![CDATA["  " + $F{NhaCungCap_TenNCC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="41" width="100" height="20" uuid="8396eeb0-53a2-40ec-b5ff-23c2fed44a44"/>
+				<textFieldExpression><![CDATA["  "+$F{NhaCungCap_SDT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="61" width="100" height="20" uuid="23d1ed4f-b083-471f-9def-ee04383f5ec9"/>
+				<textFieldExpression><![CDATA["  "+$F{NhaCungCap_DiaChi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="14" width="100" height="20" uuid="248040c2-6ecd-4eb5-bc42-e20a40919a8a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Mã SP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="14" width="179" height="20" uuid="e7a01628-81d5-4740-a8b0-e4e02e1caf6a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tên sản phẩm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="14" width="107" height="20" uuid="506f6f41-70bd-481f-83e6-2755e3917ac2"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Số lượng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="14" width="169" height="20" uuid="2848494c-8fc0-4f85-9672-9dea3df05cd5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Thành tiền]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="52" width="554" height="1" uuid="c5559af5-aed1-47b0-9045-4c41db11afcc"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="13" width="100" height="20" uuid="2ced6f14-f9e5-4aaa-9622-bfaaf4c6ed5f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{SanPham_MaSP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="13" width="178" height="20" uuid="c85db623-92d9-4a42-b2a1-aef7163e4b0f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{SanPham_TenSP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="13" width="107" height="20" uuid="e666810c-1e0e-49fd-aca4-ee59c359aca5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ChiTietPhieuNhap_SoLuong}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="386" y="13" width="169" height="20" uuid="066715c6-e898-4eea-97e9-17c7e753a1d5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ChiTietPhieuNhap_TongTien}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="51" width="554" height="1" uuid="69d0bfda-6960-4d55-8516-2257d53b7d36"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="24" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="34" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="286" y="42" width="100" height="20" uuid="072d4ce7-86e7-4aa7-9685-ac5e46dbfb0b"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tổng tiền:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="386" y="42" width="154" height="20" uuid="0753db41-9348-42d7-90db-0b1152a9e88f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{PhieuNhap_Tongtien}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
